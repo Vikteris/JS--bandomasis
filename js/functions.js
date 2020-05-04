@@ -223,9 +223,30 @@ console.log( isrinktiRaides( 'abcdefghijkl', 1.5 ));
 console.log( isrinktiRaides( 'abcdefg', 2 ),'->', 'bdf');
 console.log( isrinktiRaides( 'abcdefghijkl', 3 ),'->', 'cfil' );
 console.log( isrinktiRaides( 'abcdefghijkl', 1 ),'->', 'abcdefghijkl' );
-
-
 console.log( isrinktiRaides( 'abcdefghijkl', -3 ),'->', 'jgda' );
 console.log( isrinktiRaides( 'qweqfgsttsdga', -3 ) );
+
+
+console.log('--------------6 uždavinys------------------');
+console.log('-------------Dalyba----------------------');
+
+
+function dalyba( one, two ) {
+    if (!isFinite(one) ||
+        !isFinite(two) ){
+        return console.error('Klaida: Reikia normalių skaičių.');
+    }
+    if (two === 0) {
+        return console.error('ERROR: Dalyba is nulio nepageidautina');
+    }
+    return one / two;
+}
+console.log( dalyba(Infinity, 4) );
+console.log( dalyba(8, Infinity) );
+console.log( dalyba(8, 0) );
+
+console.log( dalyba(8, 4) );
+console.log( dalyba(254, 2) );
+console.log( dalyba(0, 2) );
 
 
