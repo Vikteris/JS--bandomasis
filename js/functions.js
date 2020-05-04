@@ -169,3 +169,63 @@ console.log( didziausiasSkaiciusSarase( [ Infinity, Infinity, 1 ] ),'->', 1);
 
 console.log('--------------5 uždavinys------------------');
 console.log('-------------IsrinktiRaides----------------------');
+
+
+function isrinktiRaides( text, step ) {
+    // valdicaija
+    if ( typeof(text) !== 'string' ) {
+        return console.error('Klaida: Pirmasis kintamasis netinkamo tipo.');   
+    }
+    if (text === '' && text > 100) {
+        return console.error('Klaida: Pirmojo kintamojo reikšmė yra netinkamo dydžio.');    
+    }
+    // if (text.length === 0) {
+        if (text === '') {
+        return console.error('Klaida: Tekstas negali būti tuščias ');
+    }
+    if ( isFinite(step) === false ) {
+        return console.error('Klaida: Antrasis kintamasis netinkamo tipo.(normalus skaičius)');   
+    }
+    if (step === 0) {
+        return console.error('Klaida: Antrasis kintamasis turi buti didesnis už 0.');
+    }
+    if ( step > text.length) {
+        return console.error('Klaida: Antrasis kintamasis turi būti ne didesnis už pateikto teksto ilgį.');
+    }
+    if ( step % 1 !==0) {
+        return console.error('Klaida: Žingsnis turi buti sveikasis skaičius.');
+    }
+    // logika
+    let newWord= '';
+        
+    if (step > 0) {
+        for ( let i=step-1; i<text.length; i= i + step) {
+            newWord= newWord +text[i];
+        }  
+    }else {
+        for (let i = text.length + step; i >= 0; i = i + step) {
+            newWord = newWord + text[i];
+    }
+
+}
+    // gražinimas rez
+    return newWord;
+}
+
+console.log( isrinktiRaides( 1561, 2 ) );
+console.log( isrinktiRaides( 'abc', 0 ) );
+console.log( isrinktiRaides( 'abc', 4 ) );
+console.log( isrinktiRaides( '', 3 ) );
+console.log(isrinktiRaides('dfgjdfhigldfh', Infinity));
+console.log(isrinktiRaides('dfgjdfhigldfh', NaN));
+console.log( isrinktiRaides( 'abcdefghijkl', 1.5 ));
+
+console.log( isrinktiRaides( 'abcdefg', 2 ),'->', 'bdf');
+console.log( isrinktiRaides( 'abcdefghijkl', 3 ),'->', 'cfil' );
+console.log( isrinktiRaides( 'abcdefghijkl', 1 ),'->', 'abcdefghijkl' );
+
+
+console.log( isrinktiRaides( 'abcdefghijkl', -3 ),'->', 'jgda' );
+console.log( isrinktiRaides( 'qweqfgsttsdga', -3 ) );
+
+
