@@ -101,3 +101,71 @@ console.log( skaitmenuKiekisSkaiciuje( 3.141515 ),'->', 7 );
 console.log( skaitmenuKiekisSkaiciuje( -3.141515 ),'->', 7 );
 
 
+console.log('--------------4 uždavinys------------------');
+console.log('-------------DidziausiasSkaiciusSarase----------------------');
+
+
+function didziausiasSkaiciusSarase(list) {
+    
+    // validavimas
+    if (Array.isArray(list) === false) {
+        return console.error('Klaida: Pateikta netinkamo tipo reikšmė.');
+    }
+    if (list.length === 0 ) {
+        return console.error('Klaida: Pateiktas sarašas negali būti tuščias.');   
+    }
+
+    // logika
+    // einam per skaičiu saraša
+    // ar ein skaičius yra tikras skaičius:
+        // jei taip : tesiam, 
+        // jei ne: einama prie sekančio sarašo nario
+
+    let didziausias = -Infinity;
+        for ( let i=0; i<list.length; i++) {
+            const einamasisSkaicius = list[i];
+            if (isFinite(einamasisSkaicius) === false) {
+                continue;
+            }
+
+            if (einamasisSkaicius > didziausias) {
+                // ar ein skaičius didesnis už 'didžiausia' skaičiu
+                    // jei taip: didžiausias skaičius = einamas/tikriniamas skaičius
+                    // Gražintas rezultatas
+            }
+                didziausias = einamasisSkaicius;
+            }
+    
+    if (didziausias === -Infinity) {
+        return console.error('Saraše turi būti bent vienas noramlus skaičius');
+        
+    }
+
+    return didziausias;    
+}
+
+console.log( didziausiasSkaiciusSarase( 'pomidoras' ) );
+console.log( didziausiasSkaiciusSarase( 1 ) );
+console.log( didziausiasSkaiciusSarase( true) );
+console.log( didziausiasSkaiciusSarase( false ) );
+console.log( didziausiasSkaiciusSarase( [] ) );
+console.log( didziausiasSkaiciusSarase( [ Infinity, Infinity, Infinity ] ),'->', 'Error');
+
+
+console.log( didziausiasSkaiciusSarase( [ 1 ] ),'->', 1);
+console.log( didziausiasSkaiciusSarase( [ 1, 2, 3 ] ),'->', 3);
+console.log( didziausiasSkaiciusSarase( [ -5, 78, 14, 0, 18 ] ),'->', 78 );
+console.log( didziausiasSkaiciusSarase( [ 69, 69, 69, 69, 66 ] ),'->', 69 );
+console.log( didziausiasSkaiciusSarase( [ -1, -2, -3, -4, -5, -6, -7, -8 ] ),'->', -1 );
+console.log( didziausiasSkaiciusSarase( [ 1, Infinity, 3 ] ),'->', 3);
+console.log( didziausiasSkaiciusSarase( [ 1, 3, Infinity ] ),'->', 3);
+
+console.log( didziausiasSkaiciusSarase( [ Infinity, 1, 3 ] ),'->', 3);
+console.log( didziausiasSkaiciusSarase( [ 1, Infinity, Infinity ] ),'->', 1);
+console.log( didziausiasSkaiciusSarase( [ Infinity, 1, Infinity ] ),'->', 1);
+console.log( didziausiasSkaiciusSarase( [ Infinity, Infinity, 1 ] ),'->', 1);
+
+
+
+console.log('--------------5 uždavinys------------------');
+console.log('-------------IsrinktiRaides----------------------');
